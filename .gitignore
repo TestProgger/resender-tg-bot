@@ -1,0 +1,6 @@
+attachments
+*.txt
+_*
+.idea
+.git
+*.log
