@@ -91,7 +91,9 @@ def attachment_handler(message):
 
 		send_func(config.owner , file_descriptor)
 		file_descriptor.close()
-		
+		if not config.persist_files:
+			os.remove(full_path)
+			logging.info(f"[USERNAME][FILENAME] : {user_name} | {attachment_file_name}  DELETED")
 		logging.info(f"[USERNAME][CHAT ID][FILENAME][CONTENT TYPE] : {user_name} | {chat_id} | {attachment_file_name} | {content_type}")
 
 
