@@ -22,6 +22,7 @@ logging.basicConfig(
 def start(message):
 	bot.send_message(message.chat.id, 'Hello. \n\n Write /help fro help.')
 
+
 @bot.message_handler(commands=["help"])
 def help(message):
 	bot.send_message(message.chat.id, 'Help message😈')
@@ -39,6 +40,7 @@ def messages(message):
 	else:
 		bot.send_message(config.owner, str(message.chat.id) + ': ' + message.text)	
 		bot.send_message(message.chat.id, '%s, wait please 👍'%message.chat.username)
+
 
 @bot.message_handler(content_types=["photo" , "video" , "document" , "audio" , "voice"])
 def attachment_handler(message):
@@ -91,8 +93,6 @@ def attachment_handler(message):
 		file_descriptor.close()
 		
 		logging.info(f"[USERNAME][CHAT ID][FILENAME][CONTENT TYPE] : {user_name} | {chat_id} | {attachment_file_name} | {content_type}")
-
-
 
 
 if __name__ == '__main__':
