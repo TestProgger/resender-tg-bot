@@ -50,7 +50,7 @@ def attachment_handler(message):
 
 	if content_type == "photo":
 		attachment_id = message.photo.file_id
-		attachment_file_name = message.photo.file_name
+		attachment_file_name = os.urandom(8).hex() + ".mp3"
 		send_func = bot.send_photo
 
 	elif content_type == "video":
