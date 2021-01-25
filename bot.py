@@ -49,11 +49,7 @@ def attachment_handler(message):
 	user_name = message.chat.username
 
 	if content_type == "photo":
-<<<<<<< HEAD
 		attachment_id = message.photo[1].file_id
-=======
-		attachment_id = message.photo.file_id
->>>>>>> 54b7d7aa84dc1961c6515379664594680b6abb39
 		attachment_file_name = os.urandom(8).hex() + ".jpg"
 		send_func = bot.send_photo
 
