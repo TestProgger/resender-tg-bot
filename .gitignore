@@ -4,3 +4,4 @@ _*
 .idea
 .git
 *.log
+sec_config.py

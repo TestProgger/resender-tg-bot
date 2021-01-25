@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
-import config
+
 import telebot
 from telebot import types
-import hashlib
 import requests
 from misc import file_put_content , init_bot_folders
 import os
 import logging
+
+try:
+	import sec_config as config
+except:
+	import config
 
 bot = telebot.TeleBot(config.token)
 init_bot_folders()
@@ -55,7 +59,7 @@ def attachment_handler(message):
 
 	elif content_type == "video":
 		attachment_id = message.video.file_id
-		attachment_file_name = message.video.file_name
+		attachment_file_name = os.urandom(8).hex() + ".mp4"
 		send_func = bot.send_video
 
 	elif content_type == "document":
